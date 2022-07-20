@@ -1,18 +1,32 @@
 <?php 
 
-spl_autoload_register(function ($class_name) {
-    include 'classes/' . $class_name . '.php';
-});
+  spl_autoload_register(function ($class_name) {
+      include 'classes/' . $class_name . '.php';
+  });
 
-  $transport = [
-    new Circle(5000),
-    new Square(50,50),
-    new Square(50,50)
+  //Transport 1
+  $transport1 = [
+    new Circle(50),
+    new Circle(50),
+    new Square(100, 100)
   ];
-  
-  $cal = new Calculation($transport);
 
-  $cont = new Container();
+  //Transport 2
+  $transport2 = [ 
+    new Square(400, 400),
+    new Circle(50),
+  ];
+
+  //Transport 3
+  $transport3 = [
+    new Square(100, 100),
+    new Square(50, 50),
+    new Circle(50)
+  ];
+
+  //Initialize Calculator class 
+  $cal = new Calculation($transport1);
   
-  print_r($cal->numberOfContainers());
+  //Print number of containers and type
+  echo $cal->numberOfContainers();
 
